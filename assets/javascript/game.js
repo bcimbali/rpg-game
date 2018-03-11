@@ -80,25 +80,13 @@ $(document).ready(function() {
         powerBoost(jediOne);
         console.log("m " + jediOne.multiplier);
 
-        console.log(jediOne.health);
-        console.log(jediTwo.health);
+        console.log('Health of ' + yourCharacter.name + ' is ' + jediOne.health);
+        console.log('Health of ' + defender.name + ' is ' + jediTwo.health);
     }
 
     $('#attackBtn').on('click', function() {
-        attack(luke, darthMaul);
+        attack(yourCharacter, defender);
     });
-
-    // $('#luke').on('click', function() {
-    //         yourCharacter = luke;
-    //         isFirstCharacterSelected = true;
-    //         enemiesAvailableToAttack = [obiWan, darthSidious, darthMaul];
-    //         $('#luke').appendTo('#chosen-character');
-    //         $('#obi-wan').appendTo('#attack-characters');
-    //         $('#darth-sidious').appendTo('#attack-characters');
-    //         $('#darth-maul').appendTo('#attack-characters');
-    //         console.log('your character is ' + yourCharacter.name);
-    //         console.log('Enemies available to attack are ' + enemiesAvailableToAttack[0].name + ' ' + enemiesAvailableToAttack[1].name + ' ' + enemiesAvailableToAttack[2].name);
-    // });
 
     $('.js-character').on('click', function() {
         if (!isFirstCharacterSelected) {

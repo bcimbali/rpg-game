@@ -1,50 +1,52 @@
 $(document).ready(function() {
    
-    let obiWan = {
-        'name': 'obi-wan',
-        'health': 120,
-        'multiplier': 10,
-        'power': function() {
-            return Math.floor(Math.random() * this.multiplier); 
+    let characters = [  
+        obiWan = {
+            'name': 'obiWan',
+            'health': 120,
+            'multiplier': 10,
+            'power': function() {
+                return Math.floor(Math.random() * this.multiplier); 
+            },
+            'attack': function() {} // I eventually want it to read as obiWan.attack(darthmaul) etc.
+                
         },
-        'attack': function() {} // I eventually want it to read as obiWan.attack(darthmaul) etc.
-             
-    };
-
-    let luke = {
-        'name': 'luke',
-        'health': 100,
-        'multiplier': 10,
-        'power': function() {
-            return Math.floor(Math.random() * this.multiplier); 
+        luke = {
+            'name': 'luke',
+            'health': 100,
+            'multiplier': 10,
+            'power': function() {
+                return Math.floor(Math.random() * this.multiplier); 
+            },
+            'attack': function() {} // I eventually want it to read as luke.attack(darthmaul) etc.
+                 
         },
-        'attack': function() {} // I eventually want it to read as luke.attack(darthmaul) etc.
-             
-    };
-
-    let darthSidious = {
-        'name': 'darth-sidious',
-        'health': 150,
-        'multiplier': 10,
-        'power': function() {
-            return Math.floor(Math.random() * this.multiplier); 
+        darthSidious = {
+            'name': 'darthSidious',
+            'health': 150,
+            'multiplier': 10,
+            'power': function() {
+                return Math.floor(Math.random() * this.multiplier); 
+            },
+            'attack': function() {} // I eventually want it to read as darthSidious.attack(darthmaul) etc.
+                 
         },
-        'attack': function() {} // I eventually want it to read as darthSidious.attack(darthmaul) etc.
-             
-    };
-
-    let darthMaul = {
-        'name': 'darth maul',
-        'health': 180, 
-        'multiplier': 5,
-        'power': function() {
-            return Math.floor(Math.random() * this.multiplier);
-        }, 
-    };
+        darthMaul = {
+            'name': 'darthMaul',
+            'health': 180, 
+            'multiplier': 5,
+            'power': function() {
+                return Math.floor(Math.random() * this.multiplier);
+            }, 
+        }
+    ];
 
     // Create variables
     let isFirstCharacterSelected = false;
+    let isSecondCharacterSelected = false;
     let yourCharacter = '';
+    let defender = '';
+    // let availableCharacters = [obiWan, luke, darthSidious, darthMaul];
     let enemiesAvailableToAttack = [];
 
     function isJediDead(jedi) {
@@ -101,14 +103,31 @@ $(document).ready(function() {
     $('.js-character').on('click', function() {
         if (!isFirstCharacterSelected) {
             // console.log(this.id);
-            yourCharacter = this.id;
+            let chosenCharacter = this.id;
+            for (i = 0; i < characters.length; i++) {
+                if (characters[i].name == chosenCharacter) {
+                    // console.log('your character is ' + chosenCharacter);
+                    yourCharacter = characters[i];
+                }
+            }
             $('.js-character').appendTo('#attack-characters');
             $(this).appendTo('#chosen-character');
             isFirstCharacterSelected = true;
-            console.log('your character is ' + yourCharacter);
+            console.log('your chosen character is ' + yourCharacter.name);
+        }
+        else if (isFirstCharacterSelected && this.id != yourCharacter.name) {
+            let chosenCharacter = this.id;
+            for (i = 0; i < characters.length; i++) {
+                if (characters[i].name == chosenCharacter) {
+                    defender = characters[i];
+                }
+            }
+            $(this).appendTo('#defender-character');
+            isSecondCharacterSelected = true;
+            console.log('your defender is ' + defender.name);
         }
         else {
-            alert('2nd character');
+            alert('went to else');
         }
     });
 

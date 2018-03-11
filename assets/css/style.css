@@ -1,6 +1,18 @@
+.align-center {
+    align-items: center;
+}
+
 .box {
     border: 1px solid black;
-    padding: 50px
+    padding: 5%;
+}
+
+.center {
+    justify-content: center;
+}
+
+.column {
+    flex-direction: column;
 }
 
 .d-f {

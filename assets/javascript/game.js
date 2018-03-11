@@ -59,5 +59,9 @@ $(document).ready(function() {
         attack(luke, darthMaul);
     });
 
+    $('#luke').on('click', function() {
+        $('#luke').appendTo('#chosen-character');
+    } )
+
 
 });

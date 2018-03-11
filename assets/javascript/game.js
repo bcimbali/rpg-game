@@ -47,6 +47,7 @@ $(document).ready(function() {
     let yourCharacter = '';
     let defender = '';
     let enemiesAvailableToAttack = [];
+    // let lukeHealth = $('#luke_health').html('<p>' + characters[1].health + '</p>');
 
     function isJediDead(jedi) {
         if (jedi.health <= 0) {
@@ -81,6 +82,33 @@ $(document).ready(function() {
         $('#yourCharacter-power').html('<p>You attacked ' + jediTwo.name + ' for ' + j1Power + ' damage.' + '</p>');
         $('#defender-power').html('<p>' + jediOne.name + ' attacked you for ' + j2Power + ' damage.' + '</p>');
 
+        if (jediOne.name === 'luke') {
+            $('#luke_health').html(jediOne.health);
+        }
+        else if (jediOne.name === 'obiWan') {
+            $('#obiWan_health').html(jediOne.health);
+        }
+        else if (jediOne.name === 'darthSidious') {
+            $('#darthSidious_health').html(jediOne.health);
+        }
+        else if (jediOne.name === 'darthMaul') {
+            $('#darthMaul_health').html(jediOne.health);
+        }
+
+        if (jediTwo.name === 'luke') {
+            $('#luke_health').html(jediTwo.health);
+        }
+        else if (jediTwo.name === 'obiWan') {
+            $('#obiWan_health').html(jediTwo.health);
+        }
+        else if (jediTwo.name === 'darthSidious') {
+            $('#darthSidious_health').html(jediTwo.health);
+        }
+        else if (jediTwo.name === 'darthMaul') {
+            $('#darthMaul_health').html(jediTwo.health);
+        }
+        
+
         console.log("yourCharacter power: " + jediOne.multiplier);
         console.log('Health of ' + yourCharacter.name + ' is ' + jediOne.health);
         console.log('Health of ' + defender.name + ' is ' + jediTwo.health);
@@ -92,11 +120,9 @@ $(document).ready(function() {
 
     $('.js-character').on('click', function() {
         if (!isFirstCharacterSelected) {
-            // console.log(this.id);
             let chosenCharacter = this.id;
             for (i = 0; i < characters.length; i++) {
                 if (characters[i].name == chosenCharacter) {
-                    // console.log('your character is ' + chosenCharacter);
                     yourCharacter = characters[i];
                 }
             }

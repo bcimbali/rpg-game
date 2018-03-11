@@ -71,10 +71,12 @@ $(document).ready(function() {
 
             // check health
         if (isJediDead(jediOne) === true) {
-            alert(jediOne.name + " lost");
+            $('#end_game').html('<p>You have been defeated...GAME OVER.</p>');
+            alert('You have been defeated...GAME OVER.');
         }
         if (isJediDead(jediTwo) === true) {
-            alert(jediTwo.name + " lost");
+            $('#end_game').html('<p>You win!</p>');
+            alert('You win!');
         }
 
         powerBoost(jediOne);
@@ -107,7 +109,6 @@ $(document).ready(function() {
         else if (jediTwo.name === 'darthMaul') {
             $('#darthMaul_health').html(jediTwo.health);
         }
-        
 
         console.log("yourCharacter power: " + jediOne.multiplier);
         console.log('Health of ' + yourCharacter.name + ' is ' + jediOne.health);

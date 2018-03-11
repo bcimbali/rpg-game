@@ -1,8 +1,19 @@
 $(document).ready(function() {
    
+    let obiWan = {
+        'name': 'obi-wan',
+        'health': 120,
+        'multiplier': 10,
+        'power': function() {
+            return Math.floor(Math.random() * this.multiplier); 
+        },
+        'attack': function() {} // I eventually want it to read as obiWan.attack(darthmaul) etc.
+             
+    };
+
     let luke = {
         'name': 'luke',
-        'health': 200,
+        'health': 100,
         'multiplier': 10,
         'power': function() {
             return Math.floor(Math.random() * this.multiplier); 
@@ -11,14 +22,30 @@ $(document).ready(function() {
              
     };
 
+    let darthSidious = {
+        'name': 'darth-sidious',
+        'health': 150,
+        'multiplier': 10,
+        'power': function() {
+            return Math.floor(Math.random() * this.multiplier); 
+        },
+        'attack': function() {} // I eventually want it to read as darthSidious.attack(darthmaul) etc.
+             
+    };
+
     let darthMaul = {
         'name': 'darth maul',
-        'health': 300, 
+        'health': 180, 
         'multiplier': 5,
         'power': function() {
             return Math.floor(Math.random() * this.multiplier);
         }, 
     };
+
+    // Create variables
+    let isFirstCharacterSelected = false;
+    let yourCharacter = '';
+    let enemiesAvailableToAttack = [];
 
     function isJediDead(jedi) {
         if (jedi.health <= 0) {
@@ -59,9 +86,31 @@ $(document).ready(function() {
         attack(luke, darthMaul);
     });
 
-    $('#luke').on('click', function() {
-        $('#luke').appendTo('#chosen-character');
-    } )
+    // $('#luke').on('click', function() {
+    //         yourCharacter = luke;
+    //         isFirstCharacterSelected = true;
+    //         enemiesAvailableToAttack = [obiWan, darthSidious, darthMaul];
+    //         $('#luke').appendTo('#chosen-character');
+    //         $('#obi-wan').appendTo('#attack-characters');
+    //         $('#darth-sidious').appendTo('#attack-characters');
+    //         $('#darth-maul').appendTo('#attack-characters');
+    //         console.log('your character is ' + yourCharacter.name);
+    //         console.log('Enemies available to attack are ' + enemiesAvailableToAttack[0].name + ' ' + enemiesAvailableToAttack[1].name + ' ' + enemiesAvailableToAttack[2].name);
+    // });
+
+    $('.js-character').on('click', function() {
+        if (!isFirstCharacterSelected) {
+            // console.log(this.id);
+            yourCharacter = this.id;
+            $('.js-character').appendTo('#attack-characters');
+            $(this).appendTo('#chosen-character');
+            isFirstCharacterSelected = true;
+            console.log('your character is ' + yourCharacter);
+        }
+        else {
+            alert('2nd character');
+        }
+    });
 
 
 });

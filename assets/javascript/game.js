@@ -46,7 +46,6 @@ $(document).ready(function() {
     let isSecondCharacterSelected = false;
     let yourCharacter = '';
     let defender = '';
-    // let availableCharacters = [obiWan, luke, darthSidious, darthMaul];
     let enemiesAvailableToAttack = [];
 
     function isJediDead(jedi) {
@@ -78,8 +77,11 @@ $(document).ready(function() {
         }
 
         powerBoost(jediOne);
-        console.log("m " + jediOne.multiplier);
 
+        $('#yourCharacter-power').html('<p>You attacked ' + jediTwo.name + ' for ' + j1Power + ' damage.' + '</p>');
+        $('#defender-power').html('<p>' + jediOne.name + ' attacked you for ' + j2Power + ' damage.' + '</p>');
+
+        console.log("yourCharacter power: " + jediOne.multiplier);
         console.log('Health of ' + yourCharacter.name + ' is ' + jediOne.health);
         console.log('Health of ' + defender.name + ' is ' + jediTwo.health);
     }

@@ -46,8 +46,16 @@ $(document).ready(function() {
     let isSecondCharacterSelected = false;
     let isThirdCharacterSelected = false;
     let yourCharacter = '';
-    let defender = '';
-    let enemiesAvailableToAttack = [];
+    let defender = '';  
+
+    function restartGame() {
+        isFirstCharacterSelected = false;
+        isSecondCharacterSelected = false;
+        isThirdCharacterSelected = false;
+        yourCharacter = '';
+        defender = '';
+
+    }
 
     function isJediDead(jedi) {
         if (jedi.health <= 0) {
@@ -71,13 +79,18 @@ $(document).ready(function() {
 
             // check health
         if (isJediDead(jediOne) === true) {
-            $('#end_game').html('<p>You have been defeated...GAME OVER.</p>');
+            // $('#restart_game').show();
+            $('#end_game').html('<p>You have been defeated...GAME OVER.</p><button id="restart_game"> Restart Game2</button>');
             alert('You have been defeated...GAME OVER.');
         }
         if (isJediDead(jediTwo) === true) {
             $('#end_game').html('<p>You win!</p>');
             alert('You win!');
         }
+
+        $('#restart_game').on('click', function() {
+            alert('restarted game');
+        });
 
         powerBoost(jediOne);
 

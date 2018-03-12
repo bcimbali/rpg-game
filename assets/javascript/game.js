@@ -44,10 +44,10 @@ $(document).ready(function() {
     // Create variables
     let isFirstCharacterSelected = false;
     let isSecondCharacterSelected = false;
+    let isThirdCharacterSelected = false;
     let yourCharacter = '';
     let defender = '';
     let enemiesAvailableToAttack = [];
-    // let lukeHealth = $('#luke_health').html('<p>' + characters[1].health + '</p>');
 
     function isJediDead(jedi) {
         if (jedi.health <= 0) {
@@ -82,7 +82,7 @@ $(document).ready(function() {
         powerBoost(jediOne);
 
         $('#yourCharacter-power').html('<p>You attacked ' + jediTwo.name + ' for ' + j1Power + ' damage.' + '</p>');
-        $('#defender-power').html('<p>' + jediOne.name + ' attacked you for ' + j2Power + ' damage.' + '</p>');
+        $('#defender-power').html('<p>' + jediTwo.name + ' attacked you for ' + j2Power + ' damage.' + '</p>');
 
         if (jediOne.name === 'luke') {
             $('#luke_health').html(jediOne.health);
@@ -131,8 +131,10 @@ $(document).ready(function() {
             $(this).appendTo('#chosen-character');
             isFirstCharacterSelected = true;
             console.log('your chosen character is ' + yourCharacter.name);
+            console.log('isSecondCharacterSelected is set to: '+ isSecondCharacterSelected);
+            console.log('isFirstCharacterSelected is set to: '+ isFirstCharacterSelected);
         }
-        else if (isFirstCharacterSelected && this.id != yourCharacter.name) {
+        else if (!isSecondCharacterSelected) {
             let chosenCharacter = this.id;
             for (i = 0; i < characters.length; i++) {
                 if (characters[i].name == chosenCharacter) {
@@ -140,13 +142,23 @@ $(document).ready(function() {
                 }
             }
             $(this).appendTo('#defender-character');
-            isSecondCharacterSelected = true;
             console.log('your defender is ' + defender.name);
+            console.log('isSecondCharacterSelected is set to: '+ isSecondCharacterSelected);
+            console.log('isFirstCharacterSelected is set to: '+ isFirstCharacterSelected);
+            isSecondCharacterSelected = true;
+        }
+        else if (!isThirdCharacterSelected) {
+            alert('Character already selected - third dealy');
         }
         else {
-            alert('went to else');
+            alert('Character already selected');
         }
+
     });
 
 
 });
+
+
+//  && this.id != yourCharacter.name
+// isFirstCharacterSelected && this.id != yourCharacter.name && this.id != defender.name

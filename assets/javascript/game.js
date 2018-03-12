@@ -58,6 +58,11 @@ $(document).ready(function() {
         characters[1].health = 100;
         characters[2].health = 150;
         characters[3].health = 180;
+        $('#darthMaul').fadeIn('slow');
+        $('#obiWan').fadeIn('slow');
+        $('#luke').fadeIn('slow');
+        $('#darthSidious').fadeIn('slow');
+        // $('.js-character').fadeIn('slow');
         $("#end_game, #yourCharacter-power, #defender-power, #luke_health, #obiWan_health, #darthSidious_health, #darthMaul_health").empty();
         $('#obiWan_health').html(characters[0].health);
         $('#luke_health').html(characters[1].health);
@@ -65,7 +70,6 @@ $(document).ready(function() {
         $('#darthMaul_health').html(characters[3].health);
         $('.js-character').appendTo('#start');
     }
-    
 
     function isJediDead(jedi) {
         if (jedi.health <= 0) {
@@ -96,7 +100,8 @@ $(document).ready(function() {
         if (isJediDead(jediTwo) === true) {
             $('#end_game').html('<p>You win!</p>');
             $('#end_game').html('<p>You have defeated ' + jediTwo.name + ', you can choose to fight another enemy.' + '</p>');
-            $('#' + jediTwo.name).detach();
+            // $('#' + jediTwo.name).detach();
+            $('#' + jediTwo.name).fadeOut('slow');
             isSecondCharacterSelected = false;
             alert('You win!');
         }

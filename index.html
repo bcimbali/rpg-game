@@ -8,47 +8,47 @@
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
     <title>Star Wars RPG</title>
 </head>
-<body>
+<body class="body">
     <!-- Choose character -->
-    <h1>Star Wars RPG!</h1>
+    <h1 class="text">Star Wars RPG!</h1>
     <div class="d-f" id="start">
-        <div class="align-center box center column d-f js-character pointer" id="obiWan">
+        <div class="align-center background-white box center column d-f js-character pointer text" id="obiWan">
             <div>Obi-Wan Kenobi</div>
             <div id="obiWan_health" >120</div>
         </div>
-        <div class="align-center box center column d-f js-character pointer" id="luke">
+        <div class="align-center background-white box center column d-f js-character pointer text" id="luke">
             <div>Luke</div>
             <div id="luke_health">100</div>
         </div>
-        <div class="align-center box center column d-f js-character pointer" id="darthSidious">
+        <div class="align-center background-white box center column d-f js-character pointer text" id="darthSidious">
             <div>Darth Sidious</div>
             <div id="darthSidious_health">150</div>
         </div>
-        <div class="align-center box center column d-f js-character js-darthMaul pointer" id="darthMaul">
+        <div class="align-center background-white box center column d-f js-character js-darthMaul pointer text" id="darthMaul">
             <div>Darth Maul</div>
             <div id="darthMaul_health">180</div>
         </div>
     </div>
-    <div>Your Character:</div>
+    <h2 class="text">Your Character:</h2>
     <div class="d-f" id="chosen-character">
 
     </div>
     <!-- Characters that get attacked -->
-    <div>Enemies Available to Attack:</div>
+    <h2 class="text">Enemies Available to Attack:</h2>
     <div class="d-f" id="attack-characters">
 
     </div>
-    <div>Fight Section:</div>
+    <h2 class="text">Fight Section:</h2>
     <button id="attackBtn">Attack</button>
 
     <!-- Defender Section -->
-    <div>Defender:</div>
+    <h2 class="text">Defender:</h2>
     <div class="d-f" id="defender-character">
 
     </div>
-    <div id="yourCharacter-power" ></div>
-    <div id="defender-power"></div>
-    <div id="end_game">
+    <div class="text white text-middle" id="yourCharacter-power" ></div>
+    <div class="text white text-middle" id="defender-power"></div>
+    <div class="text white text-middle" id="end_game">
 
     </div>
     <script src="./assets/javascript/game.js"></script>

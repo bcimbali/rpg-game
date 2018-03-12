@@ -65,6 +65,7 @@ $(document).ready(function() {
         $('#darthMaul_health').html(characters[3].health);
         $('.js-character').appendTo('#start');
     }
+    
 
     function isJediDead(jedi) {
         if (jedi.health <= 0) {
@@ -94,11 +95,13 @@ $(document).ready(function() {
         }
         if (isJediDead(jediTwo) === true) {
             $('#end_game').html('<p>You win!</p>');
+            $('#end_game').html('<p>You have defeated ' + jediTwo.name + ', you can choose to fight another enemy.' + '</p>');
+            $('#' + jediTwo.name).detach();
+            isSecondCharacterSelected = false;
             alert('You win!');
         }
 
         $('#restart_game').on('click', function() {
-            alert('restarted game');
             restartGame();
         });
 

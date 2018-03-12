@@ -54,7 +54,16 @@ $(document).ready(function() {
         isThirdCharacterSelected = false;
         yourCharacter = '';
         defender = '';
-
+        characters[0].health = 120;
+        characters[1].health = 100;
+        characters[2].health = 150;
+        characters[3].health = 180;
+        $("#end_game, #yourCharacter-power, #defender-power, #luke_health, #obiWan_health, #darthSidious_health, #darthMaul_health").empty();
+        $('#obiWan_health').html(characters[0].health);
+        $('#luke_health').html(characters[1].health);
+        $('#darthSidious_health').html(characters[2].health);
+        $('#darthMaul_health').html(characters[3].health);
+        $('.js-character').appendTo('#start');
     }
 
     function isJediDead(jedi) {
@@ -90,6 +99,7 @@ $(document).ready(function() {
 
         $('#restart_game').on('click', function() {
             alert('restarted game');
+            restartGame();
         });
 
         powerBoost(jediOne);

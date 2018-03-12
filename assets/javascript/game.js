@@ -90,7 +90,7 @@ $(document).ready(function() {
             // check health
         if (isJediDead(jediOne) === true) {
             // $('#restart_game').show();
-            $('#end_game').html('<p>You have been defeated...GAME OVER.</p><button id="restart_game"> Restart Game2</button>');
+            $('#end_game').html('<p>You have been defeated...GAME OVER.</p><button id="restart_game"> Restart Game</button>');
             alert('You have been defeated...GAME OVER.');
         }
         if (isJediDead(jediTwo) === true) {

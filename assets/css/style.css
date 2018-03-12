@@ -20,3 +20,7 @@
 .d-f {
     display: flex;
 }
+
+.pointer {
+    cursor: pointer;
+}

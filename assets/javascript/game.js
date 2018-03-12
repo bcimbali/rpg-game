@@ -134,7 +134,7 @@ $(document).ready(function() {
             console.log('isSecondCharacterSelected is set to: '+ isSecondCharacterSelected);
             console.log('isFirstCharacterSelected is set to: '+ isFirstCharacterSelected);
         }
-        else if (!isSecondCharacterSelected) {
+        else if (!isSecondCharacterSelected && this.id != yourCharacter.name) {
             let chosenCharacter = this.id;
             for (i = 0; i < characters.length; i++) {
                 if (characters[i].name == chosenCharacter) {

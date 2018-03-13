@@ -179,7 +179,7 @@ $(document).ready(function() {
             isSecondCharacterSelected = true;
         }
         else if (!isThirdCharacterSelected) {
-            alert('Character already selected - third dealy');
+            alert('Character already selected');
         }
         else {
             alert('Character already selected');

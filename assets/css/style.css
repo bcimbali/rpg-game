@@ -22,8 +22,13 @@
 .box {
     border: 3px solid black;
     height: 100px;
-    padding: 20px;
+    padding: 5PX;
     width: 10%;
+}
+
+.box img {
+    width: 70%;
+    min-height: 60px;
 }
 
 .bright-green {
@@ -35,7 +40,7 @@
 }
 
 .character-box-text {
-    border: 1px solid red;
+    margin: 5px;
     width: 100%;
 }
 
@@ -78,6 +83,10 @@
 
 .text-middle {
     font-size: 2rem;
+}
+
+.w-100 {
+    width: 100%;
 }
 
 .white {

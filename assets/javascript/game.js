@@ -60,11 +60,10 @@ $(document).ready(function() {
         characters[1].health = 100;
         characters[2].health = 150;
         characters[3].health = 180;
-        $('#darthMaul').fadeIn('slow');
-        $('#obiWan').fadeIn('slow');
-        $('#luke').fadeIn('slow');
-        $('#darthSidious').fadeIn('slow');
-        // $('.js-character').fadeIn('slow');
+        $('#darthMaul, #obiWan, #darthSidious, #luke').css('background-color', 'white');
+        $('#darthMaul, #obiWan, #darthSidious, #luke').css('color', 'black');
+        $('#darthMaul, #obiWan, #darthSidious, #luke').css('border-color', 'black');
+        $('#darthMaul, #obiWan, #darthSidious, #luke').fadeIn('slow');    
         $("#end_game, #yourCharacter-power, #defender-power, #luke_health, #obiWan_health, #darthSidious_health, #darthMaul_health").empty();
         $('#obiWan_health').html(characters[0].health);
         $('#luke_health').html(characters[1].health);
@@ -87,6 +86,10 @@ $(document).ready(function() {
         return this;
     }
 
+    function clearDamageCount() {
+        $("#yourCharacter-power, #defender-power").empty();
+    }
+
     // Attack function
     function attack(jediOne, jediTwo) {
         let j1Power = jediOne.power();
@@ -97,13 +100,13 @@ $(document).ready(function() {
 
             // check health
         if (isJediDead(jediOne) === true) {
-            $("#yourCharacter-power", "#defender-power").fadeOut();
+            clearDamageCount();
             $('#end_game').html('<p>You have been defeated...GAME OVER.</p><button id="restart_game"> Restart Game</button>');
             $('.js-character').fadeOut('slow');
             alert('You have been defeated...GAME OVER.');
         }
         if (isJediDead(jediTwo) === true) {
-            $("#yourCharacter-power", "#defender-power").fadeOut();
+            clearDamageCount();
             $('#end_game').html('<p>You win!</p>');
             $('#end_game').html('<p>You have defeated ' + jediTwo.name + ', you can choose to fight another enemy.' + '</p>');
             $('#' + jediTwo.name).fadeOut('slow');
@@ -117,8 +120,8 @@ $(document).ready(function() {
 
         powerBoost(jediOne);
 
-        $('#yourCharacter-power').html('<p>You attacked ' + jediTwo.name + ' for ' + j1Power + ' damage.' + '</p>');
-        $('#defender-power').html('<p>' + jediTwo.name + ' attacked you for ' + j2Power + ' damage.' + '</p>');
+        $('#yourCharacter-power').html('<p class="damageUpdate">You attacked ' + jediTwo.name + ' for ' + j1Power + ' damage.' + '</p>');
+        $('#defender-power').html('<p class="damageUpdate">' + jediTwo.name + ' attacked you for ' + j2Power + ' damage.' + '</p>');
     
 
         if (jediOne.name === 'luke') {
@@ -147,9 +150,9 @@ $(document).ready(function() {
             $('#darthMaul_health').html(jediTwo.health);
         }
 
-        console.log("yourCharacter power: " + jediOne.multiplier);
-        console.log('Health of ' + yourCharacter.name + ' is ' + jediOne.health);
-        console.log('Health of ' + defender.name + ' is ' + jediTwo.health);
+        // console.log("yourCharacter power: " + jediOne.multiplier);
+        // console.log('Health of ' + yourCharacter.name + ' is ' + jediOne.health);
+        // console.log('Health of ' + defender.name + ' is ' + jediTwo.health);
     }
 
     // Attack on click event
@@ -169,7 +172,9 @@ $(document).ready(function() {
                 }
             }
             $('.js-character').appendTo('#attack-characters');
+            $('.js-character').css('background-color', 'red');
             $(this).appendTo('#chosen-character');
+            $(this).css('background-color', 'white');
             isFirstCharacterSelected = true;
             // console.log('your chosen character is ' + yourCharacter.name);
             // console.log('isSecondCharacterSelected is set to: '+ isSecondCharacterSelected);
@@ -183,6 +188,9 @@ $(document).ready(function() {
                 }
             }
             $(this).appendTo('#defender-character');
+            $(this).css('background-color', 'black');
+            $(this).css('color', 'white');
+            $(this).css('border-color', 'white');
             // console.log('your defender is ' + defender.name);
             // console.log('isSecondCharacterSelected is set to: '+ isSecondCharacterSelected);
             // console.log('isFirstCharacterSelected is set to: '+ isFirstCharacterSelected);

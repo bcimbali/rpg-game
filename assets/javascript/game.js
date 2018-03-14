@@ -1,5 +1,6 @@
 $(document).ready(function() {
-   
+
+    // Create characters
     let characters = [  
         obiWan = {
             'name': 'obiWan',
@@ -48,6 +49,7 @@ $(document).ready(function() {
     let yourCharacter = '';
     let defender = '';  
 
+    // Reset game function
     function restartGame() {
         isFirstCharacterSelected = false;
         isSecondCharacterSelected = false;
@@ -71,6 +73,7 @@ $(document).ready(function() {
         $('.js-character').appendTo('#start');
     }
 
+    // Function to see if character is dead.
     function isJediDead(jedi) {
         if (jedi.health <= 0) {
             return true;
@@ -78,12 +81,13 @@ $(document).ready(function() {
         return false;
     }
 
+    // Power boost function for character
     function powerBoost(jedi) {
         this.multiplier = this.multiplier + 5;
         return this;
     }
 
-    // attack two jedi
+    // Attack function
     function attack(jediOne, jediTwo) {
         let j1Power = jediOne.power();
         let j2Power = jediTwo.power();
@@ -93,14 +97,15 @@ $(document).ready(function() {
 
             // check health
         if (isJediDead(jediOne) === true) {
-            // $('#restart_game').show();
+            $("#yourCharacter-power", "#defender-power").fadeOut();
             $('#end_game').html('<p>You have been defeated...GAME OVER.</p><button id="restart_game"> Restart Game</button>');
+            $('.js-character').fadeOut('slow');
             alert('You have been defeated...GAME OVER.');
         }
         if (isJediDead(jediTwo) === true) {
+            $("#yourCharacter-power", "#defender-power").fadeOut();
             $('#end_game').html('<p>You win!</p>');
             $('#end_game').html('<p>You have defeated ' + jediTwo.name + ', you can choose to fight another enemy.' + '</p>');
-            // $('#' + jediTwo.name).detach();
             $('#' + jediTwo.name).fadeOut('slow');
             isSecondCharacterSelected = false;
             alert('You win!');
@@ -114,6 +119,7 @@ $(document).ready(function() {
 
         $('#yourCharacter-power').html('<p>You attacked ' + jediTwo.name + ' for ' + j1Power + ' damage.' + '</p>');
         $('#defender-power').html('<p>' + jediTwo.name + ' attacked you for ' + j2Power + ' damage.' + '</p>');
+    
 
         if (jediOne.name === 'luke') {
             $('#luke_health').html(jediOne.health);
@@ -146,9 +152,13 @@ $(document).ready(function() {
         console.log('Health of ' + defender.name + ' is ' + jediTwo.health);
     }
 
+    // Attack on click event
+
     $('#attackBtn').on('click', function() {
         attack(yourCharacter, defender);
     });
+
+    // Choose characters
 
     $('.js-character').on('click', function() {
         if (!isFirstCharacterSelected) {
@@ -161,9 +171,9 @@ $(document).ready(function() {
             $('.js-character').appendTo('#attack-characters');
             $(this).appendTo('#chosen-character');
             isFirstCharacterSelected = true;
-            console.log('your chosen character is ' + yourCharacter.name);
-            console.log('isSecondCharacterSelected is set to: '+ isSecondCharacterSelected);
-            console.log('isFirstCharacterSelected is set to: '+ isFirstCharacterSelected);
+            // console.log('your chosen character is ' + yourCharacter.name);
+            // console.log('isSecondCharacterSelected is set to: '+ isSecondCharacterSelected);
+            // console.log('isFirstCharacterSelected is set to: '+ isFirstCharacterSelected);
         }
         else if (!isSecondCharacterSelected && this.id != yourCharacter.name) {
             let chosenCharacter = this.id;
@@ -173,9 +183,9 @@ $(document).ready(function() {
                 }
             }
             $(this).appendTo('#defender-character');
-            console.log('your defender is ' + defender.name);
-            console.log('isSecondCharacterSelected is set to: '+ isSecondCharacterSelected);
-            console.log('isFirstCharacterSelected is set to: '+ isFirstCharacterSelected);
+            // console.log('your defender is ' + defender.name);
+            // console.log('isSecondCharacterSelected is set to: '+ isSecondCharacterSelected);
+            // console.log('isFirstCharacterSelected is set to: '+ isFirstCharacterSelected);
             isSecondCharacterSelected = true;
         }
         else if (!isThirdCharacterSelected) {
@@ -189,7 +199,3 @@ $(document).ready(function() {
 
 
 });
-
-
-//  && this.id != yourCharacter.name
-// isFirstCharacterSelected && this.id != yourCharacter.name && this.id != defender.name

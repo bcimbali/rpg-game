@@ -101,7 +101,7 @@ $(document).ready(function() {
             // check health
         if (isJediDead(jediOne) === true) {
             clearDamageCount();
-            $('#end_game').html('<p>You have been defeated...GAME OVER.</p><button class="background-black button pointer text white" id="restart_game"> Restart Game?</button>');
+            $('#end_game').html('<p>You have been defeated...GAME OVER.</p><button class="button pointer restart-button text white" id="restart_game"> Restart Game?</button>');
             $('.js-character').fadeOut('slow');
             alert('You have been defeated...GAME OVER.');
         }

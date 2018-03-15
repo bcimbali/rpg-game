@@ -98,6 +98,10 @@ $(document).ready(function() {
         jediOne.health = jediOne.health - j2Power;
         jediTwo.health = jediTwo.health - j1Power;
 
+
+        $('#yourCharacter-power').html('<p class="damageUpdate">You attacked ' + jediTwo.name + ' for ' + j1Power + ' damage.' + '</p>');
+        $('#defender-power').html('<p class="damageUpdate">' + jediTwo.name + ' attacked you for ' + j2Power + ' damage.' + '</p>');
+
             // check health
         if (isJediDead(jediOne) === true) {
             clearDamageCount();
@@ -119,9 +123,6 @@ $(document).ready(function() {
         });
 
         powerBoost(jediOne);
-
-        $('#yourCharacter-power').html('<p class="damageUpdate">You attacked ' + jediTwo.name + ' for ' + j1Power + ' damage.' + '</p>');
-        $('#defender-power').html('<p class="damageUpdate">' + jediTwo.name + ' attacked you for ' + j2Power + ' damage.' + '</p>');
     
 
         if (jediOne.name === 'grayFox') {
@@ -161,9 +162,12 @@ $(document).ready(function() {
         attack(yourCharacter, defender);
     });
 
+    
+
     // Choose characters
 
     $('.js-character').on('click', function() {
+        $('#end_game').empty();
         if (!isFirstCharacterSelected) {
             let chosenCharacter = this.id;
             for (i = 0; i < characters.length; i++) {

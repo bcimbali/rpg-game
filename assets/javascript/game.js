@@ -172,7 +172,7 @@ $(document).ready(function() {
                 }
             }
             $('.js-character').appendTo('#attack-characters');
-            $('.js-character').css('background-color', 'red');
+            $('.js-character').css('background-color', '#51B752');
             $(this).appendTo('#chosen-character');
             $(this).css('background-color', 'white');
             isFirstCharacterSelected = true;

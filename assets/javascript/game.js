@@ -2,38 +2,38 @@ $(document).ready(function() {
 
     // Create characters
     let characters = [  
-        obiWan = {
-            'name': 'obiWan',
+        solidSnake = {
+            'name': 'solidSnake',
             'health': 120,
             'multiplier': 10,
             'power': function() {
                 return Math.floor(Math.random() * this.multiplier); 
             },
-            'attack': function() {} // I eventually want it to read as obiWan.attack(darthmaul) etc.
+            'attack': function() {} // I eventually want it to read as solidSnake.attack(psychoMantis) etc.
                 
         },
-        luke = {
-            'name': 'luke',
+        grayFox = {
+            'name': 'grayFox',
             'health': 100,
             'multiplier': 10,
             'power': function() {
                 return Math.floor(Math.random() * this.multiplier); 
             },
-            'attack': function() {} // I eventually want it to read as luke.attack(darthmaul) etc.
+            'attack': function() {} // I eventually want it to read as grayFox.attack(psychoMantis) etc.
                  
         },
-        darthSidious = {
-            'name': 'darthSidious',
+        sniperWolf = {
+            'name': 'sniperWolf',
             'health': 150,
             'multiplier': 10,
             'power': function() {
                 return Math.floor(Math.random() * this.multiplier); 
             },
-            'attack': function() {} // I eventually want it to read as darthSidious.attack(darthmaul) etc.
+            'attack': function() {} // I eventually want it to read as sniperWolf.attack(psychoMantis) etc.
                  
         },
-        darthMaul = {
-            'name': 'darthMaul',
+        psychoMantis = {
+            'name': 'psychoMantis',
             'health': 180, 
             'multiplier': 5,
             'power': function() {
@@ -60,15 +60,15 @@ $(document).ready(function() {
         characters[1].health = 100;
         characters[2].health = 150;
         characters[3].health = 180;
-        $('#darthMaul, #obiWan, #darthSidious, #luke').css('background-color', 'white');
-        $('#darthMaul, #obiWan, #darthSidious, #luke').css('color', 'black');
-        $('#darthMaul, #obiWan, #darthSidious, #luke').css('border-color', 'black');
-        $('#darthMaul, #obiWan, #darthSidious, #luke').fadeIn('slow');    
-        $("#end_game, #yourCharacter-power, #defender-power, #luke_health, #obiWan_health, #darthSidious_health, #darthMaul_health").empty();
-        $('#obiWan_health').html(characters[0].health);
-        $('#luke_health').html(characters[1].health);
-        $('#darthSidious_health').html(characters[2].health);
-        $('#darthMaul_health').html(characters[3].health);
+        $('#psychoMantis, #solidSnake, #sniperWolf, #grayFox').css('background-color', 'white');
+        $('#psychoMantis, #solidSnake, #sniperWolf, #grayFox').css('color', 'black');
+        $('#psychoMantis, #solidSnake, #sniperWolf, #grayFox').css('border-color', 'black');
+        $('#psychoMantis, #solidSnake, #sniperWolf, #grayFox').fadeIn('slow');    
+        $("#end_game, #yourCharacter-power, #defender-power, #grayFox_health, #solidSnake_health, #sniperWolf_health, #psychoMantis_health").empty();
+        $('#solidSnake_health').html(characters[0].health);
+        $('#grayFox_health').html(characters[1].health);
+        $('#sniperWolf_health').html(characters[2].health);
+        $('#psychoMantis_health').html(characters[3].health);
         $('.js-character').appendTo('#start');
     }
 
@@ -124,30 +124,30 @@ $(document).ready(function() {
         $('#defender-power').html('<p class="damageUpdate">' + jediTwo.name + ' attacked you for ' + j2Power + ' damage.' + '</p>');
     
 
-        if (jediOne.name === 'luke') {
-            $('#luke_health').html(jediOne.health);
+        if (jediOne.name === 'grayFox') {
+            $('#grayFox_health').html(jediOne.health);
         }
-        else if (jediOne.name === 'obiWan') {
-            $('#obiWan_health').html(jediOne.health);
+        else if (jediOne.name === 'solidSnake') {
+            $('#solidSnake_health').html(jediOne.health);
         }
-        else if (jediOne.name === 'darthSidious') {
-            $('#darthSidious_health').html(jediOne.health);
+        else if (jediOne.name === 'sniperWolf') {
+            $('#sniperWolf_health').html(jediOne.health);
         }
-        else if (jediOne.name === 'darthMaul') {
-            $('#darthMaul_health').html(jediOne.health);
+        else if (jediOne.name === 'psychoMantis') {
+            $('#psychoMantis_health').html(jediOne.health);
         }
 
-        if (jediTwo.name === 'luke') {
-            $('#luke_health').html(jediTwo.health);
+        if (jediTwo.name === 'grayFox') {
+            $('#grayFox_health').html(jediTwo.health);
         }
-        else if (jediTwo.name === 'obiWan') {
-            $('#obiWan_health').html(jediTwo.health);
+        else if (jediTwo.name === 'solidSnake') {
+            $('#solidSnake_health').html(jediTwo.health);
         }
-        else if (jediTwo.name === 'darthSidious') {
-            $('#darthSidious_health').html(jediTwo.health);
+        else if (jediTwo.name === 'sniperWolf') {
+            $('#sniperWolf_health').html(jediTwo.health);
         }
-        else if (jediTwo.name === 'darthMaul') {
-            $('#darthMaul_health').html(jediTwo.health);
+        else if (jediTwo.name === 'psychoMantis') {
+            $('#psychoMantis_health').html(jediTwo.health);
         }
 
         // console.log("yourCharacter power: " + jediOne.multiplier);

@@ -67,8 +67,10 @@
 }
 
 .character-box-text {
+    font-size: 1vw;
     margin: 5px;
-    width: 100%;
+    width: 10vw;
+
 }
 
 .column {
@@ -133,4 +135,19 @@
 
 .white {
     color: white;
+}
+
+@media screen and (max-width: 640px) {
+
+    .character-box-text {
+        font-size: 2vw;
+    }
+
+    .button {
+        padding: 0.5%;
+    }
+
+    .text {
+        font-size: 4vw;
+    }
 }

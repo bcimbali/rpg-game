@@ -151,9 +151,6 @@ $(document).ready(function() {
             $('#psychoMantis_health').html(jediTwo.health);
         }
 
-        // console.log("yourCharacter power: " + jediOne.multiplier);
-        // console.log('Health of ' + yourCharacter.name + ' is ' + jediOne.health);
-        // console.log('Health of ' + defender.name + ' is ' + jediTwo.health);
     }
 
     // Attack on click event
@@ -180,9 +177,6 @@ $(document).ready(function() {
             $(this).appendTo('#chosen-character');
             $(this).css('background-color', 'white');
             isFirstCharacterSelected = true;
-            // console.log('your chosen character is ' + yourCharacter.name);
-            // console.log('isSecondCharacterSelected is set to: '+ isSecondCharacterSelected);
-            // console.log('isFirstCharacterSelected is set to: '+ isFirstCharacterSelected);
         }
         else if (!isSecondCharacterSelected && this.id != yourCharacter.name) {
             let chosenCharacter = this.id;
@@ -195,9 +189,7 @@ $(document).ready(function() {
             $(this).css('background-color', 'black');
             $(this).css('color', 'white');
             $(this).css('border-color', 'white');
-            // console.log('your defender is ' + defender.name);
-            // console.log('isSecondCharacterSelected is set to: '+ isSecondCharacterSelected);
-            // console.log('isFirstCharacterSelected is set to: '+ isFirstCharacterSelected);
+
             isSecondCharacterSelected = true;
         }
         else if (!isThirdCharacterSelected) {

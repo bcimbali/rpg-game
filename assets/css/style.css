@@ -37,12 +37,13 @@
 .box {
     border: 3px solid black;
     height: 15vh;
-    padding: 2px;
+    padding: 1px;
     width: 15vw;
 }
 
 .box img {
     max-width: 9vw;
+    min-height: 6vh;
     max-height: 7vh;
 }
 
@@ -70,11 +71,12 @@
     align-items: center;
     height: 5vh;
     justify-content: center;
-    margin: 5px;
+    /* margin: 5px; */
     overflow: hidden;
     padding: 0;
     vertical-align: middle;
-    width: 10vw;
+    /* width: 10vw; */
+    width: 100%;
 }
 
 .character-span {
@@ -151,16 +153,19 @@
     .box {
         height: 10vh;
         padding: 5PX;
-        width: 15vw;
+        width: 20vw;
     }
 
     .box img {
-        max-width: 5vw;
-        max-height: 3vh;
+        max-width: 7vw;
+        min-height: 6vh;
+        max-height: 7vh;
     }
 
     .character-box-text {
         font-size: 1.5vw;
+        height: 2vh;
+        width: 100%;
     }
 
     .button {

@@ -101,6 +101,12 @@
     border: 1px dashed black;
 }
 
+.empty-box {
+    height: 15vh;
+    padding: 1px;
+    width: 0vw;
+}
+
 .header {
     text-align: center;
     margin-bottom: 20px;

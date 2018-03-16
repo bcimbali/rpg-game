@@ -158,6 +158,10 @@
     width: 100%;
 }
 
+.weight {
+    font-weight: bolder;
+}
+
 .white {
     color: white;
 }
@@ -166,7 +170,7 @@
 
 @media screen and (max-width: 768px) {
     .box {
-        height: 10vh;
+        height: 15vh;
         padding: 5PX;
         width: 20vw;
     }

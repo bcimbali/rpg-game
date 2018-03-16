@@ -36,14 +36,14 @@
 
 .box {
     border: 3px solid black;
-    height: 100px;
-    padding: 5PX;
-    width: 10%;
+    height: 15vh;
+    padding: 2px;
+    width: 15vw;
 }
 
 .box img {
-    width: 70%;
-    min-height: 60px;
+    max-width: 9vw;
+    max-height: 7vh;
 }
 
 .bright-green {
@@ -67,10 +67,19 @@
 }
 
 .character-box-text {
-    font-size: 1vw;
+    align-items: center;
+    height: 5vh;
+    justify-content: center;
     margin: 5px;
+    overflow: hidden;
+    padding: 0;
+    vertical-align: middle;
     width: 10vw;
+}
 
+.character-span {
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .column {
@@ -139,8 +148,19 @@
 
 @media screen and (max-width: 640px) {
 
+    .box {
+        height: 10vh;
+        padding: 5PX;
+        width: 15vw;
+    }
+
+    .box img {
+        max-width: 5vw;
+        max-height: 3vh;
+    }
+
     .character-box-text {
-        font-size: 2vw;
+        font-size: 1.5vw;
     }
 
     .button {

@@ -139,6 +139,12 @@
     cursor: pointer;
 }
 
+.ration {
+    visibility: hidden;
+    background: radial-gradient(circle, rgb(66, 235, 60), rgb(7, 175, 49), green);
+    width: 10%;
+}
+
 .restart-button {
     background-color: black;
     animation-name: background;

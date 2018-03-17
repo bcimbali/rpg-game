@@ -48,6 +48,7 @@ $(document).ready(function() {
     let isThirdCharacterSelected = false;
     let yourCharacter = '';
     let defender = '';  
+    let defeatedCharacters = 0;
 
     // Reset game function
     function restartGame() {
@@ -55,6 +56,7 @@ $(document).ready(function() {
         isSecondCharacterSelected = false;
         isThirdCharacterSelected = false;
         yourCharacter = '';
+        defeatedCharacters = 0;
         defender = '';
         characters[0].health = 120;
         characters[1].health = 100;
@@ -63,13 +65,22 @@ $(document).ready(function() {
         $('#psychoMantis, #solidSnake, #sniperWolf, #grayFox').css('background-color', 'white');
         $('#psychoMantis, #solidSnake, #sniperWolf, #grayFox').css('color', 'black');
         $('#psychoMantis, #solidSnake, #sniperWolf, #grayFox').css('border-color', 'black');
-        $('#psychoMantis, #solidSnake, #sniperWolf, #grayFox').fadeIn('slow');    
+        $('#psychoMantis, #solidSnake, #sniperWolf, #grayFox').fadeIn('slow'); 
+        $('#attackBtn').css('visibility', 'visible');   
         $("#end_game, #yourCharacter-power, #defender-power, #grayFox_health, #solidSnake_health, #sniperWolf_health, #psychoMantis_health").empty();
         $('#solidSnake_health').html(characters[0].health);
         $('#grayFox_health').html(characters[1].health);
         $('#sniperWolf_health').html(characters[2].health);
         $('#psychoMantis_health').html(characters[3].health);
         $('.js-character').appendTo('#start');
+    }
+
+    function addRation() {
+        $('#ration').css('visibility', 'visible');
+    }
+
+    function rationHealth() {
+        yourCharacter.health += 50;
     }
 
     // Function to see if character is dead.
@@ -112,11 +123,18 @@ $(document).ready(function() {
         if (isJediDead(jediTwo) === true) {
             clearDamageCount();
             jediOne.health = jediOne.health + 50;
+            addRation();
+            defeatedCharacters++;
             $('#end_game').html('<p>You win!</p>');
             $('#end_game').html('<p>You have defeated ' + jediTwo.name + ', you can choose to fight another enemy.' + '</p>');
             $('#' + jediTwo.name).fadeOut('slow');
             isSecondCharacterSelected = false;
             alert('You win!');
+            if (defeatedCharacters === 3) {
+                $('#end_game').html('<p>You have defeated ' + jediTwo.name + ', and won the game!' + '</p><button class="button pointer restart-button text white" id="restart_game">Play again?</button>');
+                $('#attackBtn').css('visibility', 'hidden');
+                $('#ration').css('visibility', 'hidden');
+            }
         }
 
         $('#restart_game').on('click', function() {
@@ -158,6 +176,12 @@ $(document).ready(function() {
 
     $('#attackBtn').on('click', function() {
         attack(yourCharacter, defender);
+    });
+
+    $('#ration').on('click', function() {
+        rationHealth();
+        $('#' + yourCharacter.name + '_health').html(yourCharacter.health);
+        $('#ration').css('visibility', 'hidden');
     });
 
     

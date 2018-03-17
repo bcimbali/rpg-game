@@ -11,8 +11,11 @@
     <title>Metal Gear RPG</title>
 </head>
 <body class="body">
-    <!-- Choose character -->
+
+    <!-- Heading -->
     <h1 class="header metal-gear-font text-large shadow white">Metal Gear RPG</h1>
+
+    <!-- Choose character -->
     <div class="d-f" id="start">
         <div class="align-center background-white box center column d-f js-character pointer space-between text text-center" id="solidSnake">
             <div class="character-box-text d-f">Solid Snake</div>
@@ -35,16 +38,20 @@
             <div class="character-box-text d-f" id="psychoMantis_health">180</div>
         </div>
     </div>
+    <div class="bright-green text text-center text-middle weight shadow" id="end_game"></div>
+    <!-- Selected character goes here -->
     <h2 class="bold text text-middle shadow white">Your Character:</h2>
     <div class="d-f" id="chosen-character">
         <div class="empty-box"></div>
 
     </div>
+
     <!-- Characters that get attacked -->
     <h2 class="bold text text-middle shadow white">Enemies Available to Attack:</h2>
     <div class="d-f" id="attack-characters">
             <div class="empty-box" id="empty-attack"></div>
     </div>
+    <!-- Fight Section that holds Attack Button -->
     <h2 class="bold text text-middle shadow white">Fight Section:</h2>
     <button class="bold button dash-border gradient pointer text" id="attackBtn">Attack</button>
 
@@ -53,11 +60,10 @@
     <div class="d-f" id="defender-character">
             <div class="empty-box"></div>
     </div>
+
+    <!-- Ending section that holds damage taken and ending text -->
     <div class="text text-middle shadow white" id="yourCharacter-power"></div>
     <div class="text text-middle shadow white" id="defender-power"></div>
-    <div class="bright-green text text-center text-middle weight shadow" id="end_game">
-
-    </div>
     <script src="./assets/javascript/game.js"></script>
 </body>
 </html>

@@ -59,7 +59,7 @@
 
 .button {
     margin: 2%;
-    padding: 1rem;
+    padding: 1.5rem 1rem;
     width: 25%;
 }
 
@@ -125,6 +125,10 @@
 
 .hidden {
     display: none;
+}
+
+.js-character:hover {
+    opacity: 0.8;
 }
 
 .metal-gear-font {

@@ -111,6 +111,7 @@ $(document).ready(function() {
         }
         if (isJediDead(jediTwo) === true) {
             clearDamageCount();
+            jediOne.health = jediOne.health + 50;
             $('#end_game').html('<p>You win!</p>');
             $('#end_game').html('<p>You have defeated ' + jediTwo.name + ', you can choose to fight another enemy.' + '</p>');
             $('#' + jediTwo.name).fadeOut('slow');

@@ -47,6 +47,7 @@
 }
 
 .box img {
+    min-width: 7vw;
     max-width: 9vw;
     min-height: 6vh;
     max-height: 7vh;
@@ -64,6 +65,10 @@
 
 .button:active {
     color: white;
+}
+
+.button:hover {
+    opacity: 0.8;
 }
 
 .button:focus {

@@ -1,8 +1,10 @@
+/* Import a downloaded font */
 @font-face {
     font-family: 'metalGearFont';
     src: url('./../fonts/METAG___.TTF') format('truetype');
 }
 
+/* Add animation settings to restart button */
 @keyframes background {
     0%   {background-color:black;}
     50%  {background-color:rgb(109, 109, 109);}

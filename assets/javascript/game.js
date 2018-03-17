@@ -75,10 +75,12 @@ $(document).ready(function() {
         $('.js-character').appendTo('#start');
     }
 
+    // Function that allows users to add health by clicking on a ration button
     function addRation() {
         $('#ration').css('visibility', 'visible');
     }
 
+    // Function that actually adds health to character
     function rationHealth() {
         yourCharacter.health += 50;
     }
@@ -97,6 +99,7 @@ $(document).ready(function() {
         return this;
     }
 
+    // Function that clears the amount of damage given to fighters
     function clearDamageCount() {
         $("#yourCharacter-power, #defender-power").empty();
     }
@@ -177,6 +180,8 @@ $(document).ready(function() {
     $('#attackBtn').on('click', function() {
         attack(yourCharacter, defender);
     });
+
+    // Ration on click event, adds health to your character
 
     $('#ration').on('click', function() {
         rationHealth();

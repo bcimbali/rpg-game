@@ -1,7 +1,13 @@
-/* Import a downloaded font */
+/* Import the Metal Gear downloaded font */
 @font-face {
     font-family: 'metalGearFont';
     src: url('./../fonts/METAG___.TTF') format('truetype');
+}
+
+/* Import the menu font */
+@font-face {
+    font-family: 'menuFont';
+    src: url('./../fonts/MGS2MENU.TTF') format('truetype');
 }
 
 /* Add animation settings to restart button */
@@ -9,6 +15,12 @@
     0%   {background-color:black;}
     50%  {background-color:rgb(109, 109, 109);}
     100% {background-color:black;}
+}
+
+@keyframes ration-glow {
+    0%   {background-color:rgb(66, 235, 60)}
+    50%  {background-color: rgb(7, 175, 49);}
+    100% {background-color:rgb(66, 235, 60)}
 }
 
 
@@ -60,8 +72,8 @@
 }
 
 .button {
-    margin: 2%;
-    padding: 1.5rem 1rem;
+    margin: 0.2% 0;
+    padding: 1rem 1rem;
     width: 25%;
 }
 
@@ -133,6 +145,10 @@
     opacity: 0.8;
 }
 
+.menu-font {
+    font-family: 'menuFont', arial;
+}
+
 .metal-gear-font {
     font-family: 'metalGearFont', arial;
 }
@@ -142,8 +158,15 @@
 }
 
 .ration {
+    /* background: radial-gradient(circle, rgb(66, 235, 60), rgb(7, 175, 49), green); */
+    background-color: rgb(66, 235, 60);
+    border-radius: 1rem;
+    animation-name: ration-glow;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    margin: 0 1%;
+    padding: 1%;
     visibility: hidden;
-    background: radial-gradient(circle, rgb(66, 235, 60), rgb(7, 175, 49), green);
     width: 10%;
 }
 
@@ -210,16 +233,26 @@
         max-height: 7vh;
     }
 
+    .button {
+        margin: 0.2% 0;
+        padding: 1.5% 0.5%;
+        width: 100%;
+    }
+
     .character-box-text {
         font-size: 1.5vw;
         height: 2vh;
         width: 100%;
     }
 
-    .button {
-        margin: 2%;
-        padding: 0.5%;
-        width: 100%;
+    .empty-box {
+        height: 10vh;
+        padding: 1px;
+        width: 0vw;
+    }
+
+    .ration {
+        width: 25%;
     }
 
     .text {
@@ -249,8 +282,12 @@
 
     .button {
         margin: 2%;
-        padding: 2% 0.5%;
+        padding: 3% 0.5%;
         width: 100%;
+    }
+
+    .ration {
+        width: 25%;
     }
 
     .text {

@@ -121,9 +121,10 @@ $(document).ready(function() {
             clearDamageCount();
             $('#end_game').html('<p>You have been defeated...GAME OVER.</p><button class="button pointer restart-button text white" id="restart_game"> Restart Game?</button>');
             $('.js-character').fadeOut('slow');
+            $('#attackBtn').css('visibility', 'hidden');
             alert('You have been defeated...GAME OVER.');
         }
-        if (isJediDead(jediTwo) === true) {
+        if (isJediDead(jediTwo) === true && isJediDead(jediOne) === false) {
             clearDamageCount();
             jediOne.health = jediOne.health + 50;
             addRation();
@@ -137,6 +138,7 @@ $(document).ready(function() {
                 $('#end_game').html('<p>You have defeated ' + jediTwo.name + ', and won the game!' + '</p><button class="button pointer restart-button text white" id="restart_game">Play again?</button>');
                 $('#attackBtn').css('visibility', 'hidden');
                 $('#ration').css('visibility', 'hidden');
+                $('.js-character').fadeOut('slow');
             }
         }
 

@@ -62,6 +62,7 @@ $(document).ready(function() {
         characters[1].health = 100;
         characters[2].health = 150;
         characters[3].health = 180;
+        $('#enemies').fadeIn('slow');
         $('#psychoMantis, #solidSnake, #sniperWolf, #grayFox').css('background-color', 'white');
         $('#psychoMantis, #solidSnake, #sniperWolf, #grayFox').css('color', 'black');
         $('#psychoMantis, #solidSnake, #sniperWolf, #grayFox').css('border-color', 'black');
@@ -223,6 +224,10 @@ $(document).ready(function() {
             $(this).css('border-color', 'white');
 
             isSecondCharacterSelected = true;
+            
+            if (defeatedCharacters >= 2) {
+                $('#enemies').fadeOut();
+            }
         }
         else if (!isThirdCharacterSelected) {
             alert('Character already selected');

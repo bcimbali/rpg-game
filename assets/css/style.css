@@ -17,6 +17,12 @@
     100% {background-color:black;}
 }
 
+@keyframes game-title {
+    0%   {color: red; text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;}
+    50%  {color: white; text-shadow: -1px 0 red, 0 1px red, 1px 0 red, 0 -1px red;}
+    100% {color: red; text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;}
+}
+
 @keyframes ration-glow {
     0%   {background-color:rgb(66, 235, 60)}
     50%  {background-color: rgb(7, 175, 49);}
@@ -56,6 +62,7 @@
 .box {
     border: 3px solid black;
     height: 15vh;
+    opacity: 0.9;
     padding: 1px;
     width: 15vw;
 }
@@ -74,6 +81,7 @@
 .button {
     margin: 0.2% 0;
     padding: 1rem 1rem;
+    opacity: 0.8;
     width: 25%;
 }
 
@@ -82,7 +90,7 @@
 }
 
 .button:hover {
-    opacity: 0.8;
+    opacity: 0.5;
 }
 
 .button:focus {
@@ -133,6 +141,10 @@
 }
 
 .header {
+    color: white;
+    animation-name: game-title;
+    animation-duration: 30s;
+    animation-iteration-count: infinite; 
     text-align: center;
     margin-bottom: 20px;
 }
@@ -142,7 +154,7 @@
 }
 
 .js-character:hover {
-    opacity: 0.8;
+    opacity: 0.5;
 }
 
 .menu-font {
